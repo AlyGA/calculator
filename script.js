@@ -27,3 +27,20 @@ const divide = function (...theNums) {
     return total / num;
   });
 };
+
+// Controls how the calculator chooses its operators.
+const operate = function (operator, num1, num2) {
+  if (operator === "+") {
+    return add(num1, num2);
+  } else if (operator === "-") {
+    return subtract(num1, num2);
+  } else if (operator === "*") {
+    return multiply(num1, num2);
+  } else if (operator === "/") {
+    return divide(num1, num2);
+  } else {
+    return `Something's not right!`;
+  }
+};
+
+console.log(operate("/", 5, 2));
