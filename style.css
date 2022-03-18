@@ -1,0 +1,50 @@
+/*
+COLOR SCHEMES:
+https://visme.co/blog/wp-content/uploads/2016/09/website21-1024x512.jpg
+#5680E9
+#84CEEB
+#5AB9EA
+#C1C8E4
+#8860D0
+*/
+
+/*FONTS*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* This removes any spacing from the outside border*/
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#5680e9, transparent),
+    linear-gradient(90deg, #84ceeb, transparent),
+    linear-gradient(-90deg, #c1c8e4, transparent);
+  background-blend-mode: screen;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  /* border: solid red; */
+  font-family: "Dancing Script", cursive;
+  font-size: 70px;
+  font-weight: 600;
+}
+
+.center {
+  /* border: solid blue; */
+  height: 550px;
+}
+
+.footer {
+  /* border: solid green; */
+  height: 137px;
+}
