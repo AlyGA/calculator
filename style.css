@@ -33,15 +33,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 150px;
-  /* border: solid red; */
   font-family: "Dancing Script", cursive;
   font-size: 70px;
   font-weight: 600;
+  color: #8860d0;
 }
 
 .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* border: solid blue; */
   height: 550px;
+}
+
+.calculator {
+  display: flex;
+  height: 500px;
+  width: 400px;
+  border: solid pink;
 }
 
 .footer {
