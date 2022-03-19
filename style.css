@@ -9,7 +9,7 @@ https://visme.co/blog/wp-content/uploads/2016/09/website21-1024x512.jpg
 */
 
 /*FONTS*/
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300;400;500&display=swap");
 
 body {
   display: flex;
@@ -33,10 +33,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 150px;
-  font-family: "Dancing Script", cursive;
+  font-family: "M PLUS 1", sans-serif;
   font-size: 70px;
-  font-weight: 600;
-  color: #8860d0;
+  font-weight: 400;
+  color: #001d70;
 }
 
 .center {
@@ -49,9 +49,42 @@ body {
 
 .calculator {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
   height: 500px;
   width: 400px;
-  border: solid pink;
+  border: solid #001d70;
+  border-radius: 25px;
+  background-color: #5680e9;
+  box-shadow: 10px 10px 8px 10px #c1c8e4;
+}
+
+.calc-screen {
+  display: flex;
+  border: solid #001d70;
+  background: linear-gradient(#5680e9, transparent),
+    linear-gradient(90deg, #84ceeb, transparent),
+    linear-gradient(-90deg, #c1c8e4, transparent);
+  background-blend-mode: screen;
+  height: 100px;
+  width: 320px;
+}
+
+.buttons {
+  display: flex;
+  /* border: solid red; */
+  flex-direction: column;
+  margin-top: 20px;
+  height: 360px;
+  width: 320px;
+}
+
+button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid #001d70;
 }
 
 .footer {
