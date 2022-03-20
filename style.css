@@ -69,6 +69,13 @@ body {
   background-blend-mode: screen;
   height: 100px;
   width: 320px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 40px;
+  color: #001d70;
+  font-weight: 700;
 }
 
 .buttons1 {
