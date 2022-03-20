@@ -1,4 +1,20 @@
 "use strict";
+// Getting all html classes
+const one = document.querySelector(".one");
+const two = document.querySelector(".two");
+const three = document.querySelector(".three");
+const four = document.querySelector(".four");
+const five = document.querySelector(".five");
+const six = document.querySelector(".six");
+const seven = document.querySelector(".seven");
+const eight = document.querySelector(".eight");
+const nine = document.querySelector(".nine");
+const zero = document.querySelector(".zero");
+const plus = document.querySelector(".plus");
+const minus = document.querySelector(".minus");
+const star = document.querySelector(".star");
+const slash = document.querySelector(".slash");
+const display = document.querySelector(".calc-screen");
 
 // Function that allows calculator to add an infinite amount of numbers
 const add = function (...theNums) {
@@ -43,4 +59,19 @@ const operate = function (operator, num1, num2) {
   }
 };
 
-console.log(operate("/", 5, 2));
+function buttonsClicked() {
+  one.addEventListener("click", (event) => {
+    display.textContent = 1;
+  });
+  two.addEventListener("click", (event) => {
+    display.textContent = 2;
+  });
+  three.addEventListener("click", (event) => {
+    display.textContent = 3;
+  });
+  four.addEventListener("click", (event) => {
+    display.textContent = 4;
+  });
+}
+
+buttonsClicked();
