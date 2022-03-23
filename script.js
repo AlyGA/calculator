@@ -17,10 +17,14 @@ const slash = document.querySelector(".slash");
 const display = document.querySelector(".calc-screen");
 const clear = document.querySelector(".clear");
 const enter = document.querySelector(".enter");
+const numbers = document.querySelectorAll("#num");
+const operators = document.querySelectorAll("#operator");
 
 // Initial values
-let initialInput;
-let chosenOperater;
+let initialInput = "";
+let secondinitialInput = "";
+let chosenOperater = "";
+let buttonPressed = false;
 
 // Function that allows calculator to add an infinite amount of numbers
 const add = function (...theNums) {
@@ -65,67 +69,90 @@ const operate = function (operator, num1, num2) {
   }
 };
 
-// When the buttons are cliked, save the variable or operator
-one.addEventListener("click", () => {
-  display.textContent = one.textContent;
-  initialInput = one.textContent;
-});
-two.addEventListener("click", () => {
-  display.textContent = two.textContent;
-  initialInput = two.textContent;
-});
-three.addEventListener("click", () => {
-  display.textContent = three.textContent;
-  initialInput = three.textContent;
-});
-four.addEventListener("click", () => {
-  display.textContent = four.textContent;
-  initialInput = four.textContent;
-});
-five.addEventListener("click", () => {
-  display.textContent = five.textContent;
-  initialInput = five.textContent;
-});
-six.addEventListener("click", () => {
-  display.textContent = six.textContent;
-  initialInput = six.textContent;
-});
-seven.addEventListener("click", () => {
-  display.textContent = seven.textContent;
-  initialInput = seven.textContent;
-});
-eight.addEventListener("click", () => {
-  display.textContent = eight.textContent;
-  initialInput = eight.textContent;
-});
-nine.addEventListener("click", () => {
-  display.textContent = nine.textContent;
-  initialInput = nine.textContent;
-});
-zero.addEventListener("click", () => {
-  display.textContent = zero.textContent;
-  initialInput = zero.textContent;
-});
-plus.addEventListener("click", () => {
-  display.textContent = plus.textContent;
-  chosenOperater = plus.textContent;
-});
-minus.addEventListener("click", () => {
-  display.textContent = minus.textContent;
-  chosenOperater = minus.textContent;
-});
-star.addEventListener("click", () => {
-  display.textContent = star.textContent;
-  chosenOperater = star.textContent;
-});
-slash.addEventListener("click", () => {
-  display.textContent = slash.textContent;
-  chosenOperater = slash.textContent;
-});
+function displayButtons() {
+  one.addEventListener("click", () => {
+    display.textContent = 1;
+  });
+
+  two.addEventListener("click", () => {
+    display.textContent = 2;
+  });
+  three.addEventListener("click", () => {
+    display.textContent = 3;
+  });
+  four.addEventListener("click", () => {
+    display.textContent = 4;
+  });
+  five.addEventListener("click", () => {
+    display.textContent = 5;
+  });
+  six.addEventListener("click", () => {
+    display.textContent = 6;
+  });
+  seven.addEventListener("click", () => {
+    display.textContent = 7;
+  });
+  eight.addEventListener("click", () => {
+    display.textContent = 8;
+  });
+  nine.addEventListener("click", () => {
+    display.textContent = 9;
+  });
+  zero.addEventListener("click", () => {
+    display.textContent = 0;
+  });
+  plus.addEventListener("click", () => {
+    display.textContent = "+";
+  });
+  minus.addEventListener("click", () => {
+    display.textContent = "-";
+  });
+  star.addEventListener("click", () => {
+    display.textContent = "*";
+  });
+  slash.addEventListener("click", () => {
+    display.textContent = "/";
+  });
+}
+
+displayButtons();
+
+// Get the number for 1
+function getNum1() {
+  numbers.forEach((item) => {
+    item.addEventListener("click", () => {
+      return (initialInput += item.textContent);
+    });
+  });
+}
+
+// Get the object for the operator
+function getOperator() {
+  operators.forEach((item) => {
+    item.addEventListener("click", () => {
+      return (chosenOperater += item.textContent);
+    });
+  });
+}
+
+// Get the second number
+function getNum2() {
+  numbers.forEach((item) => {
+    item.addEventListener("click", () => {
+      return (secondinitialInput += item.textContent);
+    });
+  });
+}
 
 // Once the enter button is pressed, perform the operation
 function enterButton() {
-  enter.addEventListener("click", () => {
-    operator;
-  });
+  let num1 = getNum1();
+  let num2 = getNum2();
+  let operator = getOperator();
+  console.log(num1);
+  console.log(num2);
+  console.log(operator);
+  console.log(operate(operator, num1, num2));
 }
+
+enterButton();
