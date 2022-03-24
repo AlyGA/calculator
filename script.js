@@ -69,61 +69,10 @@ const operate = function (operator, num1, num2) {
   }
 };
 
-function displayButtons() {
-  one.addEventListener("click", () => {
-    display.textContent = 1;
-  });
-
-  two.addEventListener("click", () => {
-    display.textContent = 2;
-  });
-  three.addEventListener("click", () => {
-    display.textContent = 3;
-  });
-  four.addEventListener("click", () => {
-    display.textContent = 4;
-  });
-  five.addEventListener("click", () => {
-    display.textContent = 5;
-  });
-  six.addEventListener("click", () => {
-    display.textContent = 6;
-  });
-  seven.addEventListener("click", () => {
-    display.textContent = 7;
-  });
-  eight.addEventListener("click", () => {
-    display.textContent = 8;
-  });
-  nine.addEventListener("click", () => {
-    display.textContent = 9;
-  });
-  zero.addEventListener("click", () => {
-    display.textContent = 0;
-  });
-  plus.addEventListener("click", () => {
-    display.textContent = "+";
-  });
-  minus.addEventListener("click", () => {
-    display.textContent = "-";
-  });
-  star.addEventListener("click", () => {
-    display.textContent = "*";
-  });
-  slash.addEventListener("click", () => {
-    display.textContent = "/";
-  });
-}
-
-displayButtons();
-
 // Get the number for 1
-function getNum1() {
-  numbers.forEach((item) => {
-    item.addEventListener("click", () => {
-      return (initialInput += item.textContent);
-    });
-  });
+function getNum1(value) {
+  initialInput += value; // Returns number
+  display.textContent = initialInput;
 }
 
 // Get the object for the operator
@@ -155,4 +104,4 @@ function enterButton() {
   console.log(operate(operator, num1, num2));
 }
 
-enterButton();
+// enterButton();
