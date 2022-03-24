@@ -76,21 +76,21 @@ function getNum1(value) {
 }
 
 // Get the object for the operator
-function getOperator() {
-  operators.forEach((item) => {
-    item.addEventListener("click", () => {
-      return (chosenOperater += item.textContent);
-    });
-  });
+function getOperator(value) {
+  if (initialInput !== "") {
+    if (chosenOperater === "") {
+      chosenOperater += value; // Returns number
+      display.textContent = chosenOperater;
+    }
+  }
 }
 
 // Get the second number
 function getNum2() {
-  numbers.forEach((item) => {
-    item.addEventListener("click", () => {
-      return (secondinitialInput += item.textContent);
-    });
-  });
+  if (initialInput !== "") {
+    if (chosenOperater !== "") {
+    }
+  }
 }
 
 // Once the enter button is pressed, perform the operation
