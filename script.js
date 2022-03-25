@@ -98,8 +98,8 @@ function enterButton() {
   enter.addEventListener("click", () => {
     return (display.textContent = operate(
       chosenOperator,
-      initialInput,
-      secondinitialInput
+      +initialInput,
+      +secondinitialInput
     ));
   });
 }
