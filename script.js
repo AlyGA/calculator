@@ -23,7 +23,7 @@ const operators = document.querySelectorAll("#operator");
 // Initial values
 let initialInput = "";
 let secondinitialInput = "";
-let chosenOperater = "";
+let chosenOperator = "";
 let buttonPressed = false;
 
 // Function that allows calculator to add an infinite amount of numbers
@@ -69,39 +69,39 @@ const operate = function (operator, num1, num2) {
   }
 };
 
-// Get the number for 1
-function getNum1(value) {
-  initialInput += value; // Returns number
-  display.textContent = initialInput;
+// Get both numbers
+function getNums(value) {
+  if (chosenOperator === "") {
+    initialInput += value;
+    display.textContent = initialInput;
+    console.log(initialInput);
+  } else if (chosenOperator !== "" && initialInput !== "") {
+    secondinitialInput += value;
+    display.textContent = secondinitialInput;
+    console.log(secondinitialInput);
+  }
 }
 
-// Get the object for the operator
+// Once first number has been recorded, get the object for the operator using the onclick event
 function getOperator(value) {
   if (initialInput !== "") {
-    if (chosenOperater === "") {
-      chosenOperater += value; // Returns number
-      display.textContent = chosenOperater;
+    if (chosenOperator === "") {
+      chosenOperator += value; // Returns number
+      display.textContent = chosenOperator;
+      console.log(chosenOperator);
     }
   }
 }
 
-// Get the second number
-function getNum2() {
-  if (initialInput !== "") {
-    if (chosenOperater !== "") {
-    }
-  }
-}
-
-// Once the enter button is pressed, perform the operation
+// (PLEASE IGNORE THIS FUNCTION) Once the enter button is pressed, perform the operation
 function enterButton() {
-  let num1 = getNum1();
-  let num2 = getNum2();
-  let operator = getOperator();
-  console.log(num1);
-  console.log(num2);
-  console.log(operator);
-  console.log(operate(operator, num1, num2));
+  enter.addEventListener("click", () => {
+    return (display.textContent = operate(
+      chosenOperator,
+      initialInput,
+      secondinitialInput
+    ));
+  });
 }
 
-// enterButton();
+enterButton();
