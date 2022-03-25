@@ -14,7 +14,8 @@ const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
 const star = document.querySelector(".star");
 const slash = document.querySelector(".slash");
-const display = document.querySelector(".calc-screen");
+const display = document.querySelector(".solutions-display");
+const display2 = document.querySelector(".numbers-display");
 const clear = document.querySelector(".clear");
 const enter = document.querySelector(".enter");
 const numbers = document.querySelectorAll("#num");
@@ -24,7 +25,7 @@ const operators = document.querySelectorAll("#operator");
 let initialInput = "";
 let secondinitialInput = "";
 let chosenOperator = "";
-let buttonPressed = false;
+let enterButtonPressed = false; // Indicates if the enter button was pressed or not
 
 // Function that allows calculator to add an infinite amount of numbers
 const add = function (...theNums) {
@@ -69,38 +70,40 @@ const operate = function (operator, num1, num2) {
   }
 };
 
-// Get both numbers
+// Function that retrieves both the first and second number. Uses the onclick events in HTML file to retrieve button values
 function getNums(value) {
   if (chosenOperator === "") {
     initialInput += value;
     display.textContent = initialInput;
-    console.log(initialInput);
   } else if (chosenOperator !== "" && initialInput !== "") {
     secondinitialInput += value;
     display.textContent = secondinitialInput;
-    console.log(secondinitialInput);
   }
 }
 
-// Once first number has been recorded, get the object for the operator using the onclick event
+// Returns the object for the operator using the onclick event
 function getOperator(value) {
-  if (initialInput !== "") {
-    if (chosenOperator === "") {
-      chosenOperator += value; // Returns number
-      display.textContent = chosenOperator;
-      console.log(chosenOperator);
-    }
+  if (initialInput !== "" && chosenOperator === "") {
+    chosenOperator += value; // Returns number
+    display.textContent = chosenOperator;
   }
 }
 
-// (PLEASE IGNORE THIS FUNCTION) Once the enter button is pressed, perform the operation
+// Performs the actual calculator logic when the enter button is pressed by using the operate() function
 function enterButton() {
   enter.addEventListener("click", () => {
-    return (display.textContent = operate(
+    display.textContent = operate(
       chosenOperator,
       +initialInput,
       +secondinitialInput
-    ));
+    );
+
+    display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
+
+    // Now restart the strings so that more numbers can be added
+    initialInput = display.textContent;
+    chosenOperator = "";
+    secondinitialInput = "";
   });
 }
 

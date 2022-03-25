@@ -62,6 +62,7 @@ body {
 
 .calc-screen {
   display: flex;
+  flex-direction: column;
   border: solid #001d70;
   background: linear-gradient(#5680e9, transparent),
     linear-gradient(90deg, #84ceeb, transparent),
@@ -69,8 +70,23 @@ body {
   background-blend-mode: screen;
   height: 100px;
   width: 320px;
+}
+
+.numbers-display {
+  height: 40px;
+  width: 310px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-size: 20px;
+  color: #001d70;
+  font-weight: 700;
+}
+
+.solutions-display {
+  display: flex;
+  height: 60px;
+  width: 290px;
   padding-right: 20px;
-  padding-bottom: 5px;
   justify-content: flex-end;
   align-items: flex-end;
   font-size: 40px;
