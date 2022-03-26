@@ -25,7 +25,7 @@ const operators = document.querySelectorAll("#operator");
 let initialInput = "";
 let secondinitialInput = "";
 let chosenOperator = "";
-let enterButtonPressed = false; // Indicates if the enter button was pressed or not
+let roundIterate = false; // Indicates if the iteration is the first, second, third, etc.
 
 // Function that allows calculator to add an infinite amount of numbers
 const add = function (...theNums) {
@@ -72,7 +72,10 @@ const operate = function (operator, num1, num2) {
 
 // Function that retrieves both the first and second number. Uses the onclick events in HTML file to retrieve button values
 function getNums(value) {
-  if (chosenOperator === "") {
+  if (roundIterate === true) {
+    secondinitialInput += value;
+    display.textContent = secondinitialInput;
+  } else if (chosenOperator === "" || initialInput === "") {
     initialInput += value;
     display.textContent = initialInput;
   } else if (chosenOperator !== "" && initialInput !== "") {
@@ -87,7 +90,21 @@ function getOperator(value) {
     chosenOperator += value; // Returns number
     display.textContent = chosenOperator;
   }
+  // If else statement so that calculator can run several operations.
+  if (initialInput !== "" && secondinitialInput !== "") {
+    display.textContent = operate(
+      chosenOperator,
+      +initialInput,
+      +secondinitialInput
+    );
+    roundIterate = true;
+    initialInput = display.textContent;
+    chosenOperator = "";
+    secondinitialInput = "";
+  }
 }
+
+// Performs a string of operations
 
 // Performs the actual calculator logic when the enter button is pressed by using the operate() function
 function enterButton() {
@@ -97,7 +114,6 @@ function enterButton() {
       +initialInput,
       +secondinitialInput
     );
-
     display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
 
     // Now restart the strings so that more numbers can be added
