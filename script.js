@@ -97,9 +97,11 @@ function getOperator(value) {
       +initialInput,
       +secondinitialInput
     );
+    chosenOperator = "";
     roundIterate = true;
     initialInput = display.textContent;
-    chosenOperator = "";
+    chosenOperator += value;
+    display.textContent = chosenOperator;
     secondinitialInput = "";
   }
 }
@@ -115,6 +117,9 @@ function enterButton() {
       +secondinitialInput
     );
     display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
+    console.log(
+      `First ${initialInput} Operator: ${chosenOperator} Second: ${secondinitialInput}`
+    );
 
     // Now restart the strings so that more numbers can be added
     initialInput = display.textContent;
