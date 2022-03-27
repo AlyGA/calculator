@@ -1,19 +1,5 @@
 "use strict";
-// Getting all html classes
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
-const six = document.querySelector(".six");
-const seven = document.querySelector(".seven");
-const eight = document.querySelector(".eight");
-const nine = document.querySelector(".nine");
-const zero = document.querySelector(".zero");
-const plus = document.querySelector(".plus");
-const minus = document.querySelector(".minus");
-const star = document.querySelector(".star");
-const slash = document.querySelector(".slash");
+// Getting all needed html classes.
 const display = document.querySelector(".solutions-display");
 const display2 = document.querySelector(".numbers-display");
 const clear = document.querySelector(".clear");
@@ -111,21 +97,48 @@ function getOperator(value) {
 // Performs the actual calculator logic when the enter button is pressed by using the operate() function
 function enterButton() {
   enter.addEventListener("click", () => {
-    display.textContent = operate(
-      chosenOperator,
-      +initialInput,
-      +secondinitialInput
-    );
-    display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
-    console.log(
-      `First ${initialInput} Operator: ${chosenOperator} Second: ${secondinitialInput}`
-    );
+    if (
+      initialInput !== "" &&
+      chosenOperator !== "" &&
+      secondinitialInput !== ""
+    ) {
+      let result = operate(chosenOperator, +initialInput, +secondinitialInput);
 
-    // Now restart the strings so that more numbers can be added
-    initialInput = display.textContent;
-    chosenOperator = "";
-    secondinitialInput = "";
+      if (String(result).indexOf(".") > -1) {
+        display.textContent = Number(result).toFixed(7);
+      } else {
+        display.textContent = result;
+      }
+
+      display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
+      console.log(
+        `First ${initialInput} Operator: ${chosenOperator} Second: ${secondinitialInput}`
+      );
+
+      // Now restart the strings so that more numbers can be added
+      initialInput = display.textContent;
+      chosenOperator = "";
+      secondinitialInput = "";
+    } else {
+      display.textContent = 0;
+    }
   });
 }
 
 enterButton();
+
+// This function controls the clear button and clears all options
+function clearButton() {
+  clear.addEventListener("click", () => {
+    // Clear all variables
+    initialInput = "";
+    chosenOperator = "";
+    secondinitialInput = "";
+
+    // Clear all displays
+    display.textContent = "";
+    display2.textContent = "";
+  });
+}
+
+clearButton();
