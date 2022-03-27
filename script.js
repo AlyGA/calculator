@@ -92,8 +92,6 @@ function getOperator(value) {
   }
 }
 
-// Performs a string of operations
-
 // Performs the actual calculator logic when the enter button is pressed by using the operate() function
 function enterButton() {
   enter.addEventListener("click", () => {
@@ -104,6 +102,7 @@ function enterButton() {
     ) {
       let result = operate(chosenOperator, +initialInput, +secondinitialInput);
 
+      // Check if the result is a float or regular number
       if (String(result).indexOf(".") > -1) {
         display.textContent = Number(result).toFixed(7);
       } else {
@@ -111,9 +110,6 @@ function enterButton() {
       }
 
       display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
-      console.log(
-        `First ${initialInput} Operator: ${chosenOperator} Second: ${secondinitialInput}`
-      );
 
       // Now restart the strings so that more numbers can be added
       initialInput = display.textContent;
