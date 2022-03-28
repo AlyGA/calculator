@@ -75,7 +75,6 @@ function getNums(value) {
 function getOperator(value) {
   if (initialInput !== "" && chosenOperator === "") {
     chosenOperator += value; // Returns number
-    display.textContent = chosenOperator;
   }
 
   // If else statement so that calculator can run several operations.
@@ -89,9 +88,10 @@ function getOperator(value) {
     roundIterate = true;
     initialInput = display.textContent;
     chosenOperator += value;
-    display.textContent = chosenOperator;
     secondinitialInput = "";
   }
+
+  display2.textContent = `${initialInput} ${chosenOperator}`;
 }
 
 // Performs the actual calculator logic when the enter button is pressed by using the operate() function
@@ -112,10 +112,9 @@ function enterButton() {
         display.textContent = result;
       }
 
-      // display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
-
       // Now restart the strings so that more numbers can be added
       initialInput = display.textContent;
+      display2.textContent = `${initialInput}`;
       chosenOperator = "";
       secondinitialInput = "";
     } else {
@@ -137,8 +136,8 @@ function clearButton() {
     // Clear all displays
     display.textContent = "";
     display2.textContent = "";
-    enterButtonPressed = false;
 
+    // Clearing the indicator of round iteration
     roundIterate = false;
   });
 }
