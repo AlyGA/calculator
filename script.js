@@ -12,6 +12,7 @@ let initialInput = "";
 let secondinitialInput = "";
 let chosenOperator = "";
 let roundIterate = false; // Indicates if the iteration is the first, second, third, etc.
+let enterButtonPressed = false; // Indicates whether the enter button was pressed or not.
 
 // Function that allows calculator to add an infinite amount of numbers
 const add = function (...theNums) {
@@ -76,6 +77,7 @@ function getOperator(value) {
     chosenOperator += value; // Returns number
     display.textContent = chosenOperator;
   }
+
   // If else statement so that calculator can run several operations.
   if (initialInput !== "" && secondinitialInput !== "") {
     display.textContent = operate(
@@ -95,6 +97,7 @@ function getOperator(value) {
 // Performs the actual calculator logic when the enter button is pressed by using the operate() function
 function enterButton() {
   enter.addEventListener("click", () => {
+    enterButtonPressed = true;
     if (
       initialInput !== "" &&
       chosenOperator !== "" &&
@@ -109,7 +112,7 @@ function enterButton() {
         display.textContent = result;
       }
 
-      display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
+      // display2.textContent = `${initialInput} ${chosenOperator} ${secondinitialInput}`;
 
       // Now restart the strings so that more numbers can be added
       initialInput = display.textContent;
@@ -134,6 +137,9 @@ function clearButton() {
     // Clear all displays
     display.textContent = "";
     display2.textContent = "";
+    enterButtonPressed = false;
+
+    roundIterate = false;
   });
 }
 
