@@ -6,10 +6,11 @@ This calculator makes use of HTML's onclick attributes to collect button values 
 
 This calculator is at a point where it can function properly and does not need any further bug fixs, however, some designs that may be implemented in the future are written below:
 
-| Features                               |     Status      |
-| -------------------------------------- | :-------------: |
-| Add . button for float numbers         | Not implemented |
-| Add a backspace button                 | Not implemented |
-| Add keyboard support                   |   In Progress   |
-| Add a % button                         | Not implemented |
-| Add CE button to only clear the number | Not implemented |
+| Features                                   |     Status      |
+| ------------------------------------------ | :-------------: |
+| Add . button for float numbers             | Not implemented |
+| Add a backspace button                     | Not implemented |
+| Add keyboard support                       |   In Progress   |
+| Add a % button                             | Not implemented |
+| Add CE button to only clear the number     | Not implemented |
+| Make color darker when a button is pressed | Not implemented |
