@@ -8,9 +8,9 @@ This calculator is at a point where it can function properly and does not need a
 
 | Features                                   |     Status      |
 | ------------------------------------------ | :-------------: |
-| Add . button for float numbers             | Not implemented |
+| Add . button for float numbers             |   In-Progress   |
 | Add a backspace button                     | Not implemented |
-| Add keyboard support                       |   In Progress   |
+| Add keyboard support                       | Not implemented |
 | Add a % button                             | Not implemented |
 | Add CE button to only clear the number     | Not implemented |
 | Make color darker when a button is pressed | Not implemented |
